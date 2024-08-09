@@ -4,7 +4,7 @@
 
 ## UX
 
-## Frontend Architecture
+## Architecture
 
 ## State Management
 
