@@ -24,15 +24,3 @@ Bob -> Alice : hello2
 Bob -> Alice : goodbye2
 @enduml
 ```
-
-## State Management
-
-## Payment Provider Integration
-
-## Theming
-
-## Security
-
-## Testing and Quality Assurance
-
-## Conclusion and Questions
