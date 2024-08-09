@@ -11,16 +11,18 @@
 #### Handling Everything in the Browser
 
 ```plantuml
+!include <C4/C4_Container>
 @startuml
-Bob -> Alice : hello
+Bob -> Alice : hello2
 @enduml
 ```
 
 #### Handling Stripe via Backend Service
 
 ```plantuml
+!include <C4/C4_Container>
 @startuml
-Bob -> Alice : goodbye
+Bob -> Alice : goodbye2
 @enduml
 ```
 
