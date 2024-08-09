@@ -1,8 +1,7 @@
 # Payment Solution
 
 ## Introduction
-
-## UX
+An outline and overview of the options and design patterns that could be used in a payment app built using JavaScript and React
 
 ## Architecture
 
