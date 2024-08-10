@@ -9,18 +9,9 @@ An outline and overview of the options and design patterns that could be used in
 
 #### Handling Everything in the Browser
 
-```plantuml
-!include <C4/C4_Container>
-@startuml
-Bob -> Alice : hello2
-@enduml
-```
+![browser data flow](/diagrams/browser-data-flow.svg)
 
 #### Handling Stripe via Backend Service
 
-```plantuml
-!include <C4/C4_Container>
-@startuml
-Bob -> Alice : goodbye2
-@enduml
-```
+![backend data flow](/diagrams/backend-data-flow.svg)
+

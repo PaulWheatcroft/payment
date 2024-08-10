@@ -1,0 +1,39 @@
+```plantuml
+@startuml
+!define RECTANGLE class
+
+RECTANGLE User {
+  - Fills Payment Form
+  - Validates Form
+  - Sends Form Data
+  - Displays Confirmation
+}
+
+RECTANGLE Browser {
+  - Payment Form
+  - Confirmation Screen
+}
+
+RECTANGLE BackendService {
+  - API Endpoint
+  - Data Validation
+  - Payment Processing
+  - Transaction Storage
+  - Email Service
+}
+
+RECTANGLE Stripe {
+  - Payment Processing
+  - Returns Response
+}
+
+User --> Browser : Fill Payment Form
+Browser --> BackendService : Form Data
+BackendService --> Stripe : Payment Token
+Stripe --> BackendService : Payment Response
+BackendService --> Browser : Payment Response
+Browser --> User : Display Confirmation
+BackendService --> Email : Send Confirmation Email
+@enduml
+
+```
