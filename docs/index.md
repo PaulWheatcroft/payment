@@ -9,7 +9,7 @@ An outline and overview of the options and design patterns that could be used in
 
 #### Handling Everything in the Browser
 
-![browser data flow](../diagrams/browser-data-flow.svg)
+![browser data flow](browser-data-flow.svg)
 
 #### Handling Stripe via Backend Service
 
