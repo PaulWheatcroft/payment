@@ -3,8 +3,6 @@
 ## Introduction
 An outline and overview of the options and design patterns that could be used in a payment app built using JavaScript and React for the Frontend
 
-## UX
-Email received by the client could contain params with their userId
 
 ## Architecture
 
@@ -138,6 +136,10 @@ App
 │       ├── CardElement <-- payment specific card input components
 │       └── Confirmation
 ```
+
+## UX
+Email received by the client could contain params with the firm's id maybe their user id should they have one
+React's useParams() could then be used to deconstruct these items and passed to context potentially auto-filling the form? 
 
 ## Branding
 
