@@ -13,11 +13,14 @@ An outline and overview of the options and design patterns that could be used in
 
 **Pros**
 <span style="background-color: lightgreen;">
+Is my background lightgreen?
+</span>
+<span style="color: green; font-size: 20px;">This is green text with a larger font size.</span>
 - Simple
 - Quick *direct communication with payment server*
 - Cheaper *no backend infrastructure required*
 - Easier to deploy *there are less components*
-</span>
+
 
 **Cons**
 - Security *handling things in the browser is less secure*
