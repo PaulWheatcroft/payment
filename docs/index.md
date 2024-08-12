@@ -13,31 +13,31 @@ An outline and overview of the options and design patterns that could be used in
 
 **Pros**
 - <span style="background-color: lightgreen;">Simple</span>
-- <span style="background-color: lightgreen;">Quick *direct communication with payment server*</span>
-- <span style="background-color: lightgreen;">Cheaper *no backend infrastructure required*</span>
-- <span style="background-color: lightgreen;">Easier to deploy *there are less components*</span>
+- <span style="background-color: lightgreen;">Quick - *direct communication with payment server*</span>
+- <span style="background-color: lightgreen;">Cheaper - *no backend infrastructure required*</span>
+- <span style="background-color: lightgreen;">Easier - to deploy *there are less components*</span>
 
 **Cons**
-- <span style="background-color: coral;">Security *handling things in the browser is less secure*</span>
-- <span style="background-color: coral;">Less app behavioral control *error handling is down to the payment provider*</span>
-- <span style="background-color: coral;">Compliance issues *due to the loss of security as above*</span>
-- <span style="background-color: coral;">Scalability *adding additional functionality might be more cumbersome*</span>
+- <span style="background-color: salmon;">Security - *handling things in the browser is less secure*</span>
+- <span style="background-color: salmon;">Less app behavioral control - *error handling is down to the payment provider*</span>
+- <span style="background-color: salmon;">Compliance issues - *due to the loss of security as above*</span>
+- <span style="background-color: salmon;">Scalability - *adding additional functionality might be more cumbersome*</span>
 
 #### Handling Stripe via Backend Service
 
 ![backend data flow](backend-data-flow.svg)
 
 **Pros**
-- <span style="background-color: lightgreen;">Better security *less data is exposed as this is kept server side*</span>
-- <span style="background-color: lightgreen;">Better app behavioral control *errors can be more effectively controlled. Integration with other backend services (own email service?)*</span>
-- <span style="background-color: lightgreen;">Compliance *easier to get compliance as is more secure*</span>
-- <span style="background-color: lightgreen;">Scalability *would be easier to add functionality to the payment flow as the logic is primarily handled server side*</span>
+- <span style="background-color: lightgreen;">Better security - *less data is exposed as this is kept server side*</span>
+- <span style="background-color: lightgreen;">Better app behavioral control - *errors can be more effectively controlled. Integration with other backend services (own email service?)*</span>
+- <span style="background-color: lightgreen;">Compliance - *easier to get compliance as is more secure*</span>
+- <span style="background-color: lightgreen;">Scalability - *would be easier to add functionality to the payment flow as the logic is primarily handled server side*</span>
 
 **Cons**
-- <span style="background-color: coral;">More complex/span>
-- <span style="background-color: coral;">Slower *payment now has a second step of complexity to negotiate*/span>
-- <span style="background-color: coral;">More expensive *as there is more infrastructure*/span>
-- <span style="background-color: coral;">More to manage *there is more to deploy and maintain*/span>
+- <span style="background-color: salmon;">More complex</span>
+- <span style="background-color: salmon;">Slower - *payment now has a second step of complexity to negotiate*</span>
+- <span style="background-color: salmon;">More expensive - *as there is more infrastructure*</span>
+- <span style="background-color: salmon;">More to manage - *there is more to deploy and maintain*</span>
 
 Feels like integrating with a backend solution to manage the payments is a good idea. Also transaction can be store in an ACID database such as PostgreSQL to ensure the integrity of the data.
 

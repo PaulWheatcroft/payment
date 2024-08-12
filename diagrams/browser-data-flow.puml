@@ -23,6 +23,10 @@ RECTANGLE Stripe {
   - Returns Response
 }
 
+RECTANGLE Email {
+  - Email API
+}
+
 User --> Browser : Fill Payment Form
 Browser --> Stripe : Payment Token
 Stripe --> Browser : Payment Response
