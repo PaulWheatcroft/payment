@@ -12,10 +12,12 @@ An outline and overview of the options and design patterns that could be used in
 ![browser data flow](browser-data-flow.svg)
 
 **Pros**
+<span style="background-color: lightgreen;">
 - Simple
 - Quick *direct communication with payment server*
 - Cheaper *no backend infrastructure required*
 - Easier to deploy *there are less components*
+</span>
 
 **Cons**
 - Security *handling things in the browser is less secure*
