@@ -46,7 +46,15 @@ Email received by the client could contain params with their userId
 
 ## Payment Service
 
-Create a payment service class that can be extended for different payment services. This creates an interface that abstracts out the specific payment provider logic. This can be dynamically loaded to use the correct prover via env variable i.e. env.PAYMENT_PROVIDER
+> Payment services provide their own client side library for capturing credit card details
+> - frontend sends the payment details to the payment service
+> - a payment token is received
+> - this token is sent to the backend
+> - backend processes the payment
+> - payment provider will return webhook events
+> - status sent back to the frontend
+
+Create a payment service class that can be extended for different payment services. This creates an interface that abstracts out the specific payment provider logic. This can be dynamically loaded to use the correct prover via env variable i.e. env.PAYMENT_PROVIDER, env.PAYMENT_PROVIDER_CLIENT_ID etc
 
 ```
 class PaymentService {
@@ -86,14 +94,6 @@ class SomeOtherPaymentService extends PaymentService {
     }
 }
 ```
-
-> Payment services provide their own client side library for capturing credit card details
-> - frontend sends the payment details to the payment service
-> - a payment token is received
-> - this token is sent to the backend
-> - backend processes the payment
-> - payment provider will return webhook events
-> - status sent back to the frontend
 
 ## Context and State
 
