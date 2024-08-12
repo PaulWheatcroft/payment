@@ -39,16 +39,18 @@ An outline and overview of the options and design patterns that could be used in
 - More expensive *as there is more infrastructure*
 - More to manage *there is more to deploy and maintain*
 
+Feels like integrating with a backend solution to manage the payments is a good idea. Also transaction can be store in an ACID database such as PostgreSQL to ensure the integrity of the data.
+
 ## Payment Service
 
 Create a payment service class that can be extended for different payment services. This creates an interface that abstracts out the specific payment provider logic. This can be dynamically loaded to use the correct prover via env variable i.e. env.PAYMENT_PROVIDER
 
 ```
 class PaymentService {
-  initialisePayment(amount, currency) {
+  initialisePaymentOnPaymentProvider(amount, currency) {
   }
 
-  processPayment(token) {
+  processPaymentOnTheBackend(token) {
   }
 
   handleWebhookFromPaymentProvider(event) {
@@ -58,29 +60,37 @@ class PaymentService {
 
 ```
 class StripePaymentService extends PaymentService {
-await initialisePayment(amount, currency) {
-  }
+    await initialisePaymentOnPaymentProvider(amount, currency) {
+    }
 
-  await processPayment(token) {
-  }
+    await processPaymentOnTheBackend(token) {
+    }
 
-  handleWebhookFromPaymentProvider(event) {
-  }
+    handleWebhookFromPaymentProvider(event) {
+    }
 }
 ```
 
 ```
 class SomeOtherPaymentService extends PaymentService {
-  await initialisePayment(amount, currency) {
-  }
+    await initialisePaymentOnPaymentProvider(amount, currency) {
+    }
 
-  await processPayment(token) {
-  }
+    await processPaymentOnTheBackend(token) {
+    }
 
-  handleWebhookFromPaymentProvider(event) {
-  }
+    handleWebhookFromPaymentProvider(event) {
+    }
 }
 ```
+
+> Payment services provide their own client side library for capturing credit card details
+> - frontend sends the payment details to the payment service
+> - a payment token is received
+> - this token is sent to the backend
+> - backend processes the payment
+> - payment provider will return webhook events
+> - status sent back to the frontend
 
 ## Context and State
 
@@ -88,11 +98,11 @@ Rather than passing props from one component to another wrap the "App" in a reac
 
 ```
 const App = () => {
-  return (
-    <FormProvider>
-      <CheckoutForm />
-    </FormProvider>
-  );
+    return (
+        <FormProvider>
+            <CheckoutForm />
+        </FormProvider>
+    );
 };
 ```
 
@@ -101,11 +111,13 @@ The context provider contains the useState to manage the form events and the pay
 An alternative would be to implement a state management solution such as Redux. 
 
 ```
-const App = () => (
-  <Provider store={store}>
-    <Counter />
-  </Provider>
-);
+const App = () => {
+    return (
+        <Provider store={store}>
+            <Counter />
+        </Provider>
+    );
+};
 ```
 
 I'm not sure this app is complex enough to warrant the additional complexity
