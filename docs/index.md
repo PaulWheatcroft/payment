@@ -12,10 +12,10 @@ An outline and overview of the options and design patterns that could be used in
 ![browser data flow](browser-data-flow.svg)
 
 **Pros**
-- <span style="background-color: lightgreen;">Simple</span>
-- <span style="background-color: lightgreen;">Quick - *direct communication with payment server*</span>
-- <span style="background-color: lightgreen;">Cheaper - *no backend infrastructure required*</span>
-- <span style="background-color: lightgreen;">Easier - to deploy *there are less components*</span>
+- <span style="background-color: #c5ffc8;">Simple</span>
+- <span style="background-color: #c5ffc8;">Quick - *direct communication with payment server*</span>
+- <span style="background-color: #c5ffc8;">Cheaper - *no backend infrastructure required*</span>
+- <span style="background-color: #c5ffc8;">Easier - to deploy *there are less components*</span>
 
 **Cons**
 - <span style="background-color: #ffcfc5;">Security - *handling things in the browser is less secure*</span>
@@ -28,10 +28,10 @@ An outline and overview of the options and design patterns that could be used in
 ![backend data flow](backend-data-flow.svg)
 
 **Pros**
-- <span style="background-color: lightgreen;">Better security - *less data is exposed as this is kept server side*</span>
-- <span style="background-color: lightgreen;">Better app behavioral control - *errors can be more effectively controlled. Integration with other backend services (own email service?)*</span>
-- <span style="background-color: lightgreen;">Compliance - *easier to get compliance as is more secure*</span>
-- <span style="background-color: lightgreen;">Scalability - *would be easier to add functionality to the payment flow as the logic is primarily handled server side*</span>
+- <span style="background-color: #c5ffc8;">Better security - *less data is exposed as this is kept server side*</span>
+- <span style="background-color: #c5ffc8;">Better app behavioral control - *errors can be more effectively controlled. Integration with other backend services (own email service?)*</span>
+- <span style="background-color: #c5ffc8;">Compliance - *easier to get compliance as is more secure*</span>
+- <span style="background-color: #c5ffc8;">Scalability - *would be easier to add functionality to the payment flow as the logic is primarily handled server side*</span>
 
 **Cons**
 - <span style="background-color: #ffcfc5;">More complex</span>
