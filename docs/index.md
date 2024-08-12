@@ -1,7 +1,7 @@
-# Payment Solution
+# Payment App Solution
 
 ## Introduction
-An outline and overview of the options and design patterns that could be used in a payment app built using JavaScript and React
+An outline and overview of the options and design patterns that could be used in a payment app built using JavaScript and React for the Frontendx§
 
 ## Architecture
 
@@ -39,7 +39,7 @@ An outline and overview of the options and design patterns that could be used in
 - <span style="background-color: #ffcfc5;">More expensive - *as there is more infrastructure*</span>
 - <span style="background-color: #ffcfc5;">More to manage - *there is more to deploy and maintain*</span>
 
-Feels like integrating with a backend solution to manage the payments is a good idea. Also transaction can be store in an ACID database such as PostgreSQL to ensure the integrity of the data.
+Integrating with a backend solution would enable the invoice lookup. Also transaction can be store in an ACID database such as PostgreSQL to ensure the integrity of the data.
 
 ## Payment Service
 

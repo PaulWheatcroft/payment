@@ -4,19 +4,20 @@
 
 RECTANGLE User {
   - Fills Payment Form
-  - Displays Confirmation or Error
+  - Validates Form
+  - Sends Form Data
+  - Displays Confirmation
 }
 
 RECTANGLE Browser {
   - Payment Form
   - Confirmation Screen
-  - Validates Form
-  - Sends payment token
 }
 
 RECTANGLE BackendService {
   - API Endpoint
   - Data Validation
+  - Invoice Verification
   - Payment Processing
   - Transaction Storage
   - Email Service
@@ -24,14 +25,13 @@ RECTANGLE BackendService {
 
 RECTANGLE Stripe {
   - Payment Processing
-  - Returns Payment Token
-}
-
-RECTANGLE Email {
-  - Email API
+  - Returns Response
 }
 
 User --> Browser : Fill Payment Form
+Browser --> BackendService : Form Data
+Browser --> BackendService : Verify Invoice
+BackendService --> Browser : Invoice Verified
 Browser --> Stripe : Initialize Payment
 Stripe --> Browser : Payment Token
 Browser --> BackendService : Payment Token

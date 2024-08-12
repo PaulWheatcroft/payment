@@ -9,17 +9,23 @@ RECTANGLE User {
 
 RECTANGLE Browser {
   - Payment Form
-  - Stripe.js
-  - Validates Form
-  - Processes Payment
-  - Creates Payment Token
   - Confirmation Screen
-  - Email Client
+  - Validates Form
+  - Sends payment token
+}
+
+RECTANGLE BackendService {
+  - API Endpoint
+  - Data Validation
+  - Invoice Verification
+  - Payment Processing
+  - Transaction Storage
+  - Email Service
 }
 
 RECTANGLE Stripe {
   - Payment Processing
-  - Returns Response
+  - Returns Payment Token
 }
 
 RECTANGLE Email {
@@ -27,10 +33,15 @@ RECTANGLE Email {
 }
 
 User --> Browser : Fill Payment Form
-Browser --> Stripe : Payment Token
-Stripe --> Browser : Payment Response
+Browser --> BackendService : Verify Invoice
+BackendService --> Browser : Invoice Verified
+Browser --> Stripe : Initialize Payment
+Stripe --> Browser : Payment Token
+Browser --> BackendService : Payment Token
+BackendService --> Stripe : Complete Payment
+Stripe --> BackendService : Payment Response
+BackendService --> Browser : Payment Response
 Browser --> User : Display Confirmation
-Browser --> Email : Send Confirmation Email
+BackendService --> Email : Send Confirmation Email
 @enduml
-
 ```
