@@ -58,7 +58,7 @@ class PaymentService {
 
 ```
 class StripePaymentService extends PaymentService {
-   await initialisePayment(amount, currency) {
+await initialisePayment(amount, currency) {
   }
 
   await processPayment(token) {
@@ -71,7 +71,7 @@ class StripePaymentService extends PaymentService {
 
 ```
 class SomeOtherPaymentService extends PaymentService {
-   await initialisePayment(amount, currency) {
+  await initialisePayment(amount, currency) {
   }
 
   await processPayment(token) {
@@ -81,3 +81,31 @@ class SomeOtherPaymentService extends PaymentService {
   }
 }
 ```
+
+## Context and State
+
+Rather than passing props from one component to another wrap the "App" in a react createContext
+
+```
+const App = () => {
+  return (
+    <FormProvider>
+      <CheckoutForm />
+    </FormProvider>
+  );
+};
+```
+
+The context provider contains the useState to manage the form events and the payment status.
+
+An alternative would be to implement a state management solution such as Redux. 
+
+```
+const App = () => (
+  <Provider store={store}>
+    <Counter />
+  </Provider>
+);
+```
+
+I'm not sure this app is complex enough to warrant the additional complexity
