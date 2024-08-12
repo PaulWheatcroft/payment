@@ -27,6 +27,10 @@ RECTANGLE Stripe {
   - Returns Payment Token
 }
 
+RECTANGLE Email {
+  - Email API
+}
+
 User --> Browser : Fill Payment Form
 Browser --> Stripe : Initialize Payment
 Stripe --> Browser : Payment Token
