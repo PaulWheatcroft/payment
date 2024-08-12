@@ -4,16 +4,15 @@
 
 RECTANGLE User {
   - Fills Payment Form
-  - Validates Form
-  - Creates Payment Token
-  - Processes Payment
   - Displays Confirmation
-  - Sends Confirmation Email
 }
 
 RECTANGLE Browser {
   - Payment Form
   - Stripe.js
+  - Validates Form
+  - Processes Payment
+  - Creates Payment Token
   - Confirmation Screen
   - Email Client
 }

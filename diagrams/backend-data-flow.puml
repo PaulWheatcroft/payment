@@ -4,14 +4,14 @@
 
 RECTANGLE User {
   - Fills Payment Form
-  - Validates Form
-  - Sends Form Data
-  - Displays Confirmation
+  - Displays Confirmation or Error
 }
 
 RECTANGLE Browser {
   - Payment Form
   - Confirmation Screen
+  - Validates Form
+  - Sends payment token
 }
 
 RECTANGLE BackendService {
