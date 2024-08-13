@@ -140,9 +140,11 @@ App
 │       |__ Confirmation
 ```
 
-state of isInvoice would enable go to payments this would be a ternary to change what was displayed.
+state of isInvoice would enable ContinueToPaymentButton
 
-state of isPaymentSuccess would bring up the confirmation page
+Clicking ContinueToPaymentButton > if !isAcceptTermsAndConditions ? TermsAndConditions : PaymentMethods.
+
+state of isPaymentSuccess would bring up the confirmation page in a ternary for PaymentMethods
 
 ## UX and URLs
 
