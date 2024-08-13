@@ -23,11 +23,11 @@ RECTANGLE BackendService {
 
 RECTANGLE Stripe {
   - Payment Processing
-  - Returns Payment Token
+  - Returns Response
 }
 
 RECTANGLE Email {
-  - Email API
+  - Transaction confirmation details
 }
 
 User --> Browser : Fill Payment Form
@@ -35,9 +35,8 @@ Browser --> BackendService : Verify Invoice
 BackendService --> Browser : Invoice Verified
 Browser --> Stripe : Initialize Payment
 Stripe --> Browser : Payment Token
-BackendService --> Stripe : Complete Payment
-Stripe --> BackendService : Payment Response
-BackendService --> Browser : Payment Response
+Browser --> Stripe : Complete Payment
+Stripe --> Browser : Payment Response
 Browser --> User : Display Confirmation
 BackendService --> Email : Send Confirmation Email
 @enduml

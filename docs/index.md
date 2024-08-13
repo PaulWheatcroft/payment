@@ -10,6 +10,8 @@ An outline and overview of the options and design patterns that could be used in
 
 #### Handling Everything in the Browser
 
+![backend data flow](browser-data-flow.svg)
+
 **Pros**
 - <span style="background-color: #c5ffc8; color: #000">Simple</span>
 - <span style="background-color: #c5ffc8; color: #000">Quick - *direct communication with payment server*</span>

@@ -28,6 +28,10 @@ RECTANGLE Stripe {
   - Returns Response
 }
 
+RECTANGLE Email {
+  - Transaction confirmation details
+}
+
 User --> Browser : Fill Payment Form
 Browser --> BackendService : Form Data
 Browser --> BackendService : Verify Invoice
