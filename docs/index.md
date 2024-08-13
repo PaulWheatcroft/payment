@@ -41,6 +41,7 @@ An outline and overview of the options and design patterns that could be used in
 - <span style="background-color: #ffcfc5;">More to manage - *there is more to deploy and maintain*</span>
 
 > Preferred Choice: Integrating with a backend solution would enable the invoice lookup. Also transaction can be store in an ACID database such as PostgreSQL to ensure the integrity of the data.
+> It would also facilitate easier client configuration and a client side app
 
 ## Payment Service
 
@@ -190,9 +191,10 @@ The browser would fetch these "settings" to a variable and then add them to a cu
 
 ## Deployment strategy
 
-As this is a stand alone new feature I don't see the need to hide behind a feature flag and have a feature branch.
-Dev, UAT, and Prod environments.
-Phased launch to facilitate early user feedback (using mock card details?).
+- As this is a stand alone new feature I don't see the need to hide behind a feature flag and have a feature branch.
+- Dev, UAT, and Prod environments.
+- Pick engaged clients who want to be part of the process and include them on early releases and encourage feedback
+- Phased launch to key clients facilitate early user feedback. 
 
 ## Focus areas
 
