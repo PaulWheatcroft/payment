@@ -140,6 +140,12 @@ App
 │       |__ Confirmation
 ```
 
+there is a function on the Invoicelookup back to an endpoint on the backend.
+
+- Only calls the backend if regex validation rules are met which tie in with the invoice pattern used by the law firm
+- Once the pattern is met the invoice number will be validated - if not a message will highlight invoice number does not exist
+- if the invoice number matches one in the backend setIsInvoice will make isInvoice true
+
 state of isInvoice would enable ContinueToPaymentButton
 
 Clicking ContinueToPaymentButton > if !isAcceptTermsAndConditions ? TermsAndConditions : PaymentMethods.
