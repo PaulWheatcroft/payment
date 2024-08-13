@@ -146,6 +146,8 @@ there is a function on the Invoicelookup back to an endpoint on the backend.
 - Once the pattern is met the invoice number will be validated - if not a message will highlight invoice number does not exist
 - if the invoice number matches one in the backend setIsInvoice will make isInvoice true
 
+> Using params in the link to the customer will ensure better accuracy. See below.
+
 state of isInvoice would enable ContinueToPaymentButton
 
 Clicking ContinueToPaymentButton > if !isAcceptTermsAndConditions ? TermsAndConditions : PaymentMethods.
