@@ -12,14 +12,12 @@ RECTANGLE Browser {
   - Confirmation Screen
   - Validates Form
   - Sends payment token
+  - Payment processing
 }
 
 RECTANGLE BackendService {
   - API Endpoint
-  - Data Validation
   - Invoice Verification
-  - Payment Processing
-  - Transaction Storage
   - Email Service
 }
 
