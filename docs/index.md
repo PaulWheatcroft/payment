@@ -137,9 +137,14 @@ App
 │       └── Confirmation
 ```
 
-## UX
-Email received by the client could contain params with the firm's id maybe their user id should they have one
-React's useParams() could then be used to deconstruct these items and passed to context potentially auto-filling the form? 
+## UX and URLs
+
+Email received by the client could contain params containing the invoice number and or the user details should they exists
+React's useParams() could then be used to deconstruct these items and passed to context potentially auto-filling the form
+
+/payment/:invoiceId/:emailAddress
+
+https://pay.thelawfirm.com/payment/?invoice=123&email=anne.person@yahooo.com
 
 ## Branding
 
