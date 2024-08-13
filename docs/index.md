@@ -192,9 +192,10 @@ The browser would fetch these "settings" to a variable and then add them to a cu
 ## Deployment strategy
 
 - As this is a stand alone new feature I don't see the need to hide behind a feature flag and have a feature branch.
-- Dev, UAT, and Prod environments.
-- Pick engaged clients who want to be part of the process and include them on early releases and encourage feedback
-- Phased launch to key clients facilitate early user feedback. 
+- Branches used for development would be merged in to main following Component and E2E tests upon PR creation.
+- Dev (manual deploy), UAT (merge to main), and Prod (tagged release) environments.
+- Pick engaged clients who want to be part of the process and include them on early releases and encourage feedback.
+- Phased launch to key clients facilitate early user feedback.
 
 ## Focus areas
 
