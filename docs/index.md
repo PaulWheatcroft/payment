@@ -127,15 +127,22 @@ I'm not sure this app is complex enough to warrant the additional complexity
 
 ```
 App
-├── CheckoutForm
-│   ├── InvoiceLookup <-- component for dynamic invoice lookup
-│   ├── InputField <-- standard input fields
-│   ├── Button <-- standard button
-│   └── PaymentMethods
-│       ├── PaymentRequestButton <-- payment specific button component
-│       ├── CardElement <-- payment specific card input components
-│       └── Confirmation
+|__ CheckoutForm
+│   |__ InputField
+│   |__ InvoiceLookup <-- component for dynamic invoice lookup
+│   |__ ContinueToPaymentButton
+│   |__ TermsAndConditions
+│   |__ PaymentMethods <-- Stripe payment specific
+|       |__ ApplePay <-- Default support and display
+|       |__ GooglePay <-- Default support and display
+│       |__ PaymentRequestButton <-- Stripe payment specific button component
+│       |  |__ CardElement <-- Stripe specific card input components from their library
+│       |__ Confirmation
 ```
+
+state of isInvoice would enable go to payments this would be a ternary to change what was displayed.
+
+state of isPaymentSuccess would bring up the confirmation page
 
 ## UX and URLs
 
@@ -143,38 +150,39 @@ Email received by the client could contain params containing the invoice number 
 React's useParams() could then be used to deconstruct these items and passed to context potentially auto-filling the form
 
 /payment/:invoiceId/:emailAddress
+https://pay.thelawfirmname.com/payment/?invoice=123&email=anne.person@yahooo.com
+or
+/payment/:companyId/:invoiceId/:emailAddress
+https://pay.legl.com/payment/?companyId=345&invoice=123&email=anne.person@yahooo.com
 
-https://pay.thelawfirm.com/payment/?invoice=123&email=anne.person@yahooo.com
+
 
 ## Branding
 
 Branding could be managed from a separate admin page where a logo can be uploaded and potentially some corporate colouring. The issue with allowing too much client changes beyond the logo is thet the colour chosen may not pass A11y testing
-CSS variables could mange this. For instance
+CSS variables could mange this. These items would be stored in a database so it seem logical to put this on the backend.
+
+The browser would fetch these "settings" to a variable and then add them to a custom style element such as <style id="client-styles"></style>
 
 ```
 :root {
-  --primary-color: #0044cc;
-  --secondary-color: #ffcc00;
-  --font-family: 'Arial, sans-serif';
-}
-
-body {
-  font-family: var(--font-family);
-  color: var(--primary-color);
-}
-
-button {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-}
+          --primary-color: ${clientConfig.primaryColor};
+          --secondary-color: ${clientConfig.secondaryColor};
+          --font-family: ${clientConfig.fontFamily};
+        }
 ```
+
+1. Get client styling and create variable
+2. Get style element by id
+3. style the element with variable
+
+> Feels like there would be a way to cache these settings to make load time quicker but don't know how!!!!
 
 ## Deployment strategy
 
 As this is a stand alone new feature I don't see the need to hide behind a feature flag and have a feature branch.
-Dev, Staging, and Prod environments.
-Phased launch to facilitate early user feedback (using mock card details?)
-
+Dev, UAT, and Prod environments.
+Phased launch to facilitate early user feedback (using mock card details?).
 
 ## Focus areas
 
