@@ -35,7 +35,6 @@ Browser --> BackendService : Verify Invoice
 BackendService --> Browser : Invoice Verified
 Browser --> Stripe : Initialize Payment
 Stripe --> Browser : Payment Token
-Browser --> BackendService : Payment Token
 BackendService --> Stripe : Complete Payment
 Stripe --> BackendService : Payment Response
 BackendService --> Browser : Payment Response
